@@ -34,6 +34,36 @@ function App() {
       );
   }, [buyResult, rentResult]);
 
+  useEffect(() => {
+    let currentDocumentHeight = 0;
+
+    const sendMessageUpdatingHeight = (height: number) => {
+      window.parent.postMessage(
+        { eventName: "SET_HEIGHT", payload: { height } },
+        "*"
+      );
+    };
+
+    const handleDocumentMutation = () => {
+      const documentHeight = document.body.scrollHeight;
+
+      if (documentHeight && documentHeight !== currentDocumentHeight) {
+        currentDocumentHeight = documentHeight;
+        console.log(documentHeight);
+        sendMessageUpdatingHeight(documentHeight);
+      }
+    };
+
+    const observer = new MutationObserver(handleDocumentMutation);
+
+    observer.observe(document.body, {
+      subtree: true,
+      attributes: true,
+      childList: true,
+      characterData: true,
+    });
+  }, []);
+
   return (
     <main>
       <div className="flex flex-col md:flex-row justify-between gap-10 bg-[url('/texture-2.png')] bg-center bg-cover">
