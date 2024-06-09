@@ -177,7 +177,7 @@ export default function HomeRent() {
           </div>
         </div>
         <div className="flex flex-col text-start w-full md:md:pr-5 ">
-          <label>Renter's insurance:</label>
+          <label>Renters Insurance:</label>
           <div className="relative md:w-2/3">
             <input
               name="insurance"

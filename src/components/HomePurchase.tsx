@@ -153,7 +153,7 @@ function HomePurchase() {
           Home Purchase
         </h2>
         <div className="flex flex-col text-start w-full">
-          <label>Home price:</label>
+          <label>Home Purchase Price:</label>
           <div className="relative md:md:pr-5">
             <input
               name="homePrice"
@@ -171,7 +171,7 @@ function HomePurchase() {
           </div>
         </div>
         <div className="flex flex-col text-start ">
-          <label>Buy Closing Cost:</label>
+          <label>Purchase Closing Costs:</label>
           <div className="flex justify-between items-center gap-5">
             <div className="relative  w-full md:w-2/3">
               <input
@@ -496,7 +496,7 @@ function HomePurchase() {
           </div>
         </div>
         <div className="flex flex-col text-start md:pr-5">
-          <label>Sell Closing Cost:</label>
+          <label>Sale Closing Costs:</label>
           <div className="relative w-full md:w-2/3">
             <input
               name="sellClosingCost"

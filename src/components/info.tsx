@@ -8,7 +8,7 @@ import {
 
 export const rentInit = {
   values: {
-    averageInvestmentReturn: "5",
+    averageInvestmentReturn: "0",
   },
   validations: {
     averageInvestmentReturn: (s: string) => {

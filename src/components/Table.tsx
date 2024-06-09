@@ -54,7 +54,10 @@ const Table: FC<{
         </thead>
         <tbody>
           {buyInfo.deploy.slice(0, buyInfo.finalYear).map((item, index) => (
-            <tr key={index} className="even:bg-slate-100">
+            <tr
+              key={index}
+              className="even:bg-slate-100 hover:bg-sky-100 cursor-pointer transition-all"
+            >
               <td className="px-6 py-4 whitespace-nowrap border-r">
                 <div className="">
                   <p>{index + 1} Year</p>
