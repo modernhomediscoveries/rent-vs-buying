@@ -17,6 +17,9 @@ export const rentInit = {
       return Math.min(numberInterpret(s), 20);
     },
     rentalIncome: (s: string) => {
+      return Math.min(numberInterpret(s), 1000000);
+    },
+    rentalIncomeGrowth: (s: string) => {
       return Math.min(numberInterpret(s), 20);
     },
   },
@@ -112,7 +115,7 @@ export default function Info() {
                 className="h-10 px-2 rounded border w-full"
               />
               <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-                $
+                %
               </span>
             </div>
             <div className="w-full md:w-1/3 flex flex-col md:items-start">
@@ -208,7 +211,7 @@ export default function Info() {
                 value={homeRent.rentalIncomeGrowth}
                 onChange={formatterInputHandlingChangeWithValidation(
                   handleChange,
-                  rentInit.validations.rentalIncome
+                  rentInit.validations.rentalIncomeGrowth
                 )}
                 type="text"
                 className="h-10 px-2 rounded border w-full"

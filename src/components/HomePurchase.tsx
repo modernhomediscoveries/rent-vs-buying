@@ -26,6 +26,7 @@ export const homePurchaseInitial = {
     maintenanceCostType: "$",
     sellClosingCost: "0",
     closing: "no",
+    expenseGrowth: "3",
   },
   validations: {
     homePrice: (s: string) => {
@@ -56,6 +57,9 @@ export const homePurchaseInitial = {
       return Math.min(numberInterpret(s), 10000000);
     },
     maintenanceCost: (s: string) => {
+      return Math.min(numberInterpret(s), 20);
+    },
+    expenseGrowth: (s: string) => {
       return Math.min(numberInterpret(s), 20);
     },
     homeValueAppreciation: (s: string) => {
@@ -492,6 +496,24 @@ function HomePurchase() {
                 {fields.maintenanceCostType}
               </button>{" "}
               - year
+            </span>
+          </div>
+        </div>
+        <div className="flex flex-col text-start md:pr-5">
+          <label>Expense Growth:</label>
+          <div className="relative w-full md:w-2/3">
+            <input
+              name="expenseGrowth"
+              value={purchaseData.expenseGrowth}
+              onChange={formatterInputHandlingChangeWithValidation(
+                handleChange,
+                homePurchaseInitial.validations.expenseGrowth
+              )}
+              type="text"
+              className="h-10 px-2 rounded border w-full"
+            />
+            <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
+              %
             </span>
           </div>
         </div>

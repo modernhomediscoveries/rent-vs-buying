@@ -56,20 +56,21 @@ export function buyCalc(
     finalYear: string;
     averageInvestmentReturn: string;
     closing: string;
+    expenseGrowth: string;
   }>
 ) {
   const loanTerm = numberInterpret(values.loanTerm ?? 0);
   let homePrice = numberInterpret(values.homePrice ?? 0);
   const interest = numberInterpret(values.interestRate ?? 0) / 12 / 100;
   const downPayment = numberInterpret(values?.downPayment ?? 0) / 100;
-  const propertyTax =
+  let propertyTax =
     numberInterpret(values.propertyTax ?? 0) /
     (values.propertyTaxType == "%" ? 1200 : 12);
-  const homeInsurance =
+  let homeInsurance =
     numberInterpret(values.homeInsurance ?? 0) /
     (values.homeInsuranceType == "%" ? 1200 : 12);
   const HOAFee = numberInterpret(values.HOAFee ?? 0) / 12;
-  const maintenanceCost =
+  let maintenanceCost =
     numberInterpret(values.maintenanceCost ?? 0) /
     (values.maintenanceCostType == "%" ? 1200 : 12);
   const buyClosingCost = numberInterpret(values.buyClosingCost ?? 0) / 1200;
@@ -80,6 +81,7 @@ export function buyCalc(
 
   const homeValueAppreciation =
     numberInterpret(values.homeValueAppreciation ?? 0) / 1200;
+  const expenseGrowth = numberInterpret(values.expenseGrowth ?? 0) / 100;
 
   let totalBalance =
     homePrice *
@@ -111,6 +113,10 @@ export function buyCalc(
 
       totalInterest = totalInterest + i;
       totalBalance = totalBalance - principalPaid;
+      propertyTax *= values.propertyTaxType == "%" ? 0 : 1 + expenseGrowth;
+      maintenanceCost *=
+        values.maintenanceCostType == "%" ? 0 : 1 + expenseGrowth;
+      homeInsurance *= values.homeInsuranceType == "%" ? 1 : 1 + expenseGrowth;
 
       yearI.push(
         (i > 0 ? i : 0) +
