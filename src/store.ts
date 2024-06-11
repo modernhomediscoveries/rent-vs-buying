@@ -31,6 +31,7 @@ export const useStore = create<Store>()((set) => ({
     totalInterest: 0,
     deploy: [],
     line: [],
+    finalYear: 0
   },
   calcBuy: () => set((state) => ({ buyResult: buyCalc(state.fields) ?? [] })),
 

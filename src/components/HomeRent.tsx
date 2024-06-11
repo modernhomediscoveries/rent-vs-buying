@@ -43,14 +43,12 @@ export default function HomeRent() {
   useEffect(() => {
     fieldsChange(homeRent);
   }, [homeRent]);
-  useEffect(() => {
-    console.log(text);
-  }, [text]);
-
+  
   function createArrayOfText(text: string) {
     const array = text.split("<space>");
     return array;
   }
+  
   return (
     <>
       {text && (

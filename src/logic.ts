@@ -6,28 +6,33 @@ export function rentCalc(
     rentalFeeIncrease: string;
     insurance: string;
     upfrontCost: string;
+    rentalIncome: string;
+    rentalIncomeGrowth: string;
   }>
 ) {
   const monthlyRentalFee = numberInterpret(values?.monthlyRentalFee ?? 0);
   const rentalFeeIncrease =
     numberInterpret(values?.rentalFeeIncrease ?? 0) / 100;
-  const insurance = numberInterpret(values?.insurance ?? 0);
+  let insurance = numberInterpret(values?.insurance ?? 0);
   const upfrontCost = numberInterpret(values?.upfrontCost ?? 0);
+  let rentalIncome = numberInterpret(values?.rentalIncome ?? 0);
+  const rentalIncomeGrowth =
+    numberInterpret(values?.rentalIncomeGrowth ?? 0) / 100;
 
   let mp = monthlyRentalFee;
 
   const array: number[] = [];
   const sum: number[] = [];
   for (let index = 0; index < 30; index++) {
-    mp = mp * (1 + rentalFeeIncrease);
+    insurance = insurance * (1 + rentalFeeIncrease);
+    rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
+    mp = mp * (1 + rentalFeeIncrease) + insurance - rentalIncome;
     array.push(mp);
     sum.push(mp * 12);
   }
 
   return {
-    deploy: array.map(
-      (item, index) => item + insurance + (index === 0 ? upfrontCost : 0)
-    ),
+    deploy: array.map((item, index) => item + (index === 0 ? upfrontCost : 0)),
     sum,
   };
 }
