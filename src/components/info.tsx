@@ -47,8 +47,8 @@ export default function Info() {
   return (
     <>
       {text && (
-        <div className="fixed top-0 left-0 w-full min-h-screen h-screen flex justify-center items-center z-50 bg-black bg-opacity-20 backdrop-blur-sm">
-          <div className="w-[700px] max-w-full bg-white rounded py-8">
+        <div className="fixed top-0 left-0 w-full min-h-full h-screen flex justify-center items-center z-50 bg-black bg-opacity-20 backdrop-blur-sm">
+          <div className="w-[700px] max-w-full bg-white rounded py-8 px-4">
             <div className="flex justify-end mb-4">
               {" "}
               <button
