@@ -15,9 +15,6 @@ export function rentCalc(
     numberInterpret(values?.rentalFeeIncrease ?? 0) / 100;
   let insurance = numberInterpret(values?.insurance ?? 0);
   const upfrontCost = numberInterpret(values?.upfrontCost ?? 0);
-  let rentalIncome = numberInterpret(values?.rentalIncome ?? 0);
-  const rentalIncomeGrowth =
-    numberInterpret(values?.rentalIncomeGrowth ?? 0) / 100;
 
   let mp = monthlyRentalFee;
 
@@ -25,10 +22,10 @@ export function rentCalc(
   const sum: number[] = [];
   for (let index = 0; index < 30; index++) {
     insurance = insurance * (1 + rentalFeeIncrease);
-    rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
+
     mp = mp * (1 + rentalFeeIncrease);
 
-    array.push(mp + insurance - rentalIncome);
+    array.push(mp + insurance);
     sum.push(mp * 12);
   }
 

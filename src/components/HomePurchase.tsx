@@ -101,8 +101,13 @@ function HomePurchase() {
       ...prev,
       [name]: value,
       [name.replace("Type", "")]: formatNumberInput(
-        prev[name.replace("Type", "")],
-        homePurchaseInitial.validations[name.replace("Type", "")]
+        (prev as Record<string, string>)[name.replace("Type", "")],
+        (
+          homePurchaseInitial.validations as Record<
+            string,
+            (s: string) => number
+          >
+        )[name.replace("Type", "")]
       ),
     }));
   }
