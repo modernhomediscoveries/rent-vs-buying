@@ -13,7 +13,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "../components/ui/tooltip";
+} from "./ui/tooltip";
 
 export const homePurchaseInitial = {
   values: {
