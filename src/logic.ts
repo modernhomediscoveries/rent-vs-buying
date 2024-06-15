@@ -27,7 +27,6 @@ export function rentCalc(
     insurance = insurance * (1 + rentalFeeIncrease);
     rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
     mp = mp * (1 + rentalFeeIncrease);
-    console.log(rentalIncome);
 
     array.push(mp + insurance - rentalIncome);
     sum.push(mp * 12);
