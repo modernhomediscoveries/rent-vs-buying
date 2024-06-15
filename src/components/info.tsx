@@ -10,7 +10,7 @@ export const rentInit = {
   values: {
     averageInvestmentReturn: "0",
     rentalIncome: "0",
-    rentalIncomeGrowth: "0",
+    rentalIncomeGrowth: "3",
   },
   validations: {
     averageInvestmentReturn: (s: string) => {
@@ -192,7 +192,9 @@ export default function Info() {
                   type="button"
                   className="text-[#2ea6e9] text-sm"
                   onClick={() => {
-                    setText("lorem");
+                    setText(
+                      "This refers to the estimated monthly income you expect to receive from roommates, renting out a second unit, or other rental arrangements after purchasing home."
+                    );
                   }}
                 >
                   Whats this?
@@ -242,7 +244,9 @@ export default function Info() {
                   type="button"
                   className="text-[#2ea6e9] text-sm"
                   onClick={() => {
-                    setText("lorem");
+                    setText(
+                      "Rental Income Growth is the amount you anticipate you rental income to increase each year. A good benchmark could be the average inflation rate."
+                    );
                   }}
                 >
                   Whats this?
