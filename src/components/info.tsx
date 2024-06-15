@@ -148,7 +148,7 @@ export default function Info() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
                       Whats this?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         Average Investment Return refers to the typical annual
                         earnings your investments generate over time.
@@ -205,10 +205,10 @@ export default function Info() {
                 </p>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start ">
                       Whats this?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         This refers to the estimated monthly income you expect
                         to receive from roommates, renting out a second unit, or
@@ -263,7 +263,7 @@ export default function Info() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
                       Whats this?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         Rental Income Growth is the amount you anticipate your
                         rental income to increase each year. A good benchmark

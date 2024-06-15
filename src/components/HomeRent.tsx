@@ -170,7 +170,7 @@ export default function HomeRent() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm">
                       Rental Fee Increase?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         The Rental Fee Increase is the average annual percentage
                         you anticipate rent to increase during the duration of
@@ -243,7 +243,7 @@ export default function HomeRent() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
                       What is included in this?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         Upfront costs include application fees, broker's fees,
                         expenses related to moving, utility setup fees, and

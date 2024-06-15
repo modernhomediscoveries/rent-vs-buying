@@ -223,7 +223,7 @@ function HomePurchase() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm">
                       Whats this?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         {" "}
                         This is the percentage amount that you anticipate your
@@ -380,7 +380,7 @@ function HomePurchase() {
                     <TooltipTrigger className="text-[#2ea6e9] text-sm">
                       What is Final Year?
                     </TooltipTrigger>
-                    <TooltipContent className="w-[600px]">
+                    <TooltipContent className="">
                       <p>
                         The Final Year, in this context, refers to the number of
                         years from now when you plan to sell or move out of the
