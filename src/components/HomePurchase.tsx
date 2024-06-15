@@ -220,7 +220,10 @@ function HomePurchase() {
                 </p>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                    <TooltipTrigger
+                      type="button"
+                      className="text-[#2ea6e9] text-sm"
+                    >
                       Whats this?
                     </TooltipTrigger>
                     <TooltipContent className="">
@@ -377,7 +380,10 @@ function HomePurchase() {
                 </p>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                    <TooltipTrigger
+                      type="button"
+                      className="text-[#2ea6e9] text-sm"
+                    >
                       What is Final Year?
                     </TooltipTrigger>
                     <TooltipContent className="">

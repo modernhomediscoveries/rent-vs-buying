@@ -167,7 +167,10 @@ export default function HomeRent() {
                 </p>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                    <TooltipTrigger
+                      type="button"
+                      className="text-[#2ea6e9] text-sm"
+                    >
                       Rental Fee Increase?
                     </TooltipTrigger>
                     <TooltipContent className="">
@@ -240,7 +243,10 @@ export default function HomeRent() {
                 </p>
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                    <TooltipTrigger
+                      type="button"
+                      className="text-[#2ea6e9] text-sm text-start"
+                    >
                       What is included in this?
                     </TooltipTrigger>
                     <TooltipContent className="">
