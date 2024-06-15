@@ -80,7 +80,7 @@ export function buyCalc(
     numberInterpret(values.averageInvestmentReturn ?? 0) / 100;
 
   const homeValueAppreciation =
-    numberInterpret(values.homeValueAppreciation ?? 0) / 1200;
+    numberInterpret(values.homeValueAppreciation ?? 0) / 100;
   const expenseGrowth = numberInterpret(values.expenseGrowth ?? 0) / 100;
 
   let totalBalance =
@@ -114,6 +114,7 @@ export function buyCalc(
     // console.log(values.propertyTaxType, propertyTax);
     // console.log(homeInsurance);
     // console.log(maintenanceCost);
+
     for (let index1 = 0; index1 < 12; index1++) {
       const i = interest * totalBalance;
       const principalPaid = monthlyPayment - i;
@@ -126,7 +127,7 @@ export function buyCalc(
             ((values.propertyTaxType == "%" ? propertyTax : 0) +
               (values.maintenanceCostType == "%" ? maintenanceCost : 0) +
               (values.homeInsuranceType == "%" ? homeInsurance : 0) -
-              homeValueAppreciation) +
+              homeValueAppreciation / 12) +
           (values.homeInsuranceType == "%" ? 0 : homeInsurance / 12) +
           (values.maintenanceCostType == "%" ? 0 : maintenanceCost / 12) +
           (values.propertyTaxType == "%" ? 0 : propertyTax / 12) +
@@ -148,6 +149,7 @@ export function buyCalc(
         investment * averageInvestmentReturn,
     });
     investment *= 1 + averageInvestmentReturn;
+    homePrice *= 1 + homeValueAppreciation;
   }
   return {
     monthlyPayment,
