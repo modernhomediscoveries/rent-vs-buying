@@ -8,6 +8,13 @@ import {
   formatNumberInput,
 } from "../Utils/number-formatter";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
+
 export const homePurchaseInitial = {
   values: {
     homePrice: "100,000",
@@ -80,6 +87,7 @@ function createArrayOfText(text: string) {
 function HomePurchase() {
   const { fields, fieldsChange } = useStore();
   const [purchaseData, setPurchaseData] = useState(homePurchaseInitial.values);
+  const [showWindow, setShowWindow] = useState(-1);
   const [text, setText] = useState<string>();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -98,6 +106,7 @@ function HomePurchase() {
       ),
     }));
   }
+
   useEffect(() => {
     fieldsChange(purchaseData);
   }, [purchaseData]);
@@ -193,8 +202,7 @@ function HomePurchase() {
               </span>
             </div>
             <div className="w-full md:w-1/3 flex flex-col md:items-start">
-              <div className="">
-                {" "}
+              <div className="relative ">
                 <p className="flex items-center text-[#9CA3AF]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -210,17 +218,24 @@ function HomePurchase() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "This is the percentage amount that you anticipate your home's value will appreciate on average each year over the duration of your ownership of the property. <space> A good conservative benchmark is the average US annual inflation rate, which has been just over 3% annually for the last one hundred years."
-                    );
-                  }}
-                >
-                  Whats this?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                      Whats this?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        {" "}
+                        This is the percentage amount that you anticipate your
+                        home's value will appreciate on average each year over
+                        the duration of your ownership of the property. <br /> A
+                        good conservative benchmark is the average US annual
+                        inflation rate, which has been just over 3% annually for
+                        the last one hundred years.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
@@ -360,21 +375,28 @@ function HomePurchase() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      `The Final Year, in this context, refers to the number of years from now when you plan to sell or move out of the property you are renting or purchasing. 
-                      <space>
-                      For example, if you plan to move out in 5 years, then the final year is 5 years from now. 
-                      <space>
-                      This period is crucial for financial planning, as it influences decisions about renting versus buying, mortgage terms, potential capital gains, and overall housing strategy.`
-                    );
-                  }}
-                >
-                  What is Final Year?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                      What is Final Year?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        The Final Year, in this context, refers to the number of
+                        years from now when you plan to sell or move out of the
+                        property you are renting or purchasing.
+                        <br />
+                        For example, if you plan to move out in 5 years, then
+                        the final year is 5 years from now.
+                        <br />
+                        This period is crucial for financial planning, as it
+                        influences decisions about renting versus buying,
+                        mortgage terms, potential capital gains, and overall
+                        housing strategy.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>

@@ -6,6 +6,13 @@ import {
   numberInterpret,
 } from "../Utils/number-formatter";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
+
 export const rentInit = {
   values: {
     averageInvestmentReturn: "0",
@@ -136,17 +143,25 @@ export default function Info() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "Average Investment Return refers to the typical annual earnings your investments generate over time. Historically, the 30-year return of the S&P 500 has averaged around 10–12%. <space> When you purchase a home, whether with cash or a down payment, you incur an opportunity cost. This means the money used for the home purchase isn't available for other investments that could potentially yield returns."
-                    );
-                  }}
-                >
-                  Whats this?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                      Whats this?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        Average Investment Return refers to the typical annual
+                        earnings your investments generate over time.
+                        Historically, the 30-year return of the S&P 500 has
+                        averaged around 10–12%. <br /> When you purchase a home,
+                        whether with cash or a down payment, you incur an
+                        opportunity cost. This means the money used for the home
+                        purchase isn't available for other investments that
+                        could potentially yield returns.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
@@ -188,17 +203,20 @@ export default function Info() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "This refers to the estimated monthly income you expect to receive from roommates, renting out a second unit, or other rental arrangements after purchasing your home."
-                    );
-                  }}
-                >
-                  Whats this?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                      Whats this?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        This refers to the estimated monthly income you expect
+                        to receive from roommates, renting out a second unit, or
+                        other rental arrangements after purchasing your home.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
@@ -240,17 +258,20 @@ export default function Info() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "Rental Income Growth is the amount you anticipate your rental income to increase each year. A good benchmark could be the average inflation rate."
-                    );
-                  }}
-                >
-                  Whats this?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                      Whats this?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        Rental Income Growth is the amount you anticipate your
+                        rental income to increase each year. A good benchmark
+                        could be the average inflation rate.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>

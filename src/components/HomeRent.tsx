@@ -5,6 +5,12 @@ import {
   formatterInputHandlingChangeWithValidation,
   numberInterpret,
 } from "../Utils/number-formatter";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../components/ui/tooltip";
 
 export const rentInit = {
   values: {
@@ -43,12 +49,12 @@ export default function HomeRent() {
   useEffect(() => {
     fieldsChange(homeRent);
   }, [homeRent]);
-  
+
   function createArrayOfText(text: string) {
     const array = text.split("<space>");
     return array;
   }
-  
+
   return (
     <>
       {text && (
@@ -159,17 +165,20 @@ export default function HomeRent() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "The Rental Fee Increase is the average annual percentage you anticipate rent to increase during the duration of your stay."
-                    );
-                  }}
-                >
-                  Rental Fee Increase?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm">
+                      Rental Fee Increase?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        The Rental Fee Increase is the average annual percentage
+                        you anticipate rent to increase during the duration of
+                        your stay.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
@@ -229,17 +238,20 @@ export default function HomeRent() {
                   </svg>
                   HELP
                 </p>
-                <button
-                  type="button"
-                  className="text-[#2ea6e9] text-sm"
-                  onClick={() => {
-                    setText(
-                      "Upfront costs include application fees, broker's fees, expenses related to moving, utility setup fees, and more."
-                    );
-                  }}
-                >
-                  What is included in this?
-                </button>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="text-[#2ea6e9] text-sm text-start">
+                      What is included in this?
+                    </TooltipTrigger>
+                    <TooltipContent className="w-[600px]">
+                      <p>
+                        Upfront costs include application fees, broker's fees,
+                        expenses related to moving, utility setup fees, and
+                        more.
+                      </p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
             </div>
           </div>
