@@ -26,8 +26,10 @@ export function rentCalc(
   for (let index = 0; index < 30; index++) {
     insurance = insurance * (1 + rentalFeeIncrease);
     rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
-    mp = mp * (1 + rentalFeeIncrease) + insurance - rentalIncome;
-    array.push(mp);
+    mp = mp * (1 + rentalFeeIncrease);
+    console.log(rentalIncome);
+
+    array.push(mp + insurance - rentalIncome);
     sum.push(mp * 12);
   }
 
@@ -57,8 +59,13 @@ export function buyCalc(
     averageInvestmentReturn: string;
     closing: string;
     expenseGrowth: string;
+    rentalIncome: string;
+    rentalIncomeGrowth: string;
   }>
 ) {
+  let rentalIncome = numberInterpret(values?.rentalIncome ?? 0);
+  const rentalIncomeGrowth =
+    numberInterpret(values?.rentalIncomeGrowth ?? 0) / 100;
   const loanTerm = numberInterpret(values.loanTerm ?? 0);
   let homePrice = numberInterpret(values.homePrice ?? 0);
   const interest = numberInterpret(values.interestRate ?? 0) / 12 / 100;
@@ -114,7 +121,7 @@ export function buyCalc(
     // console.log(values.propertyTaxType, propertyTax);
     // console.log(homeInsurance);
     // console.log(maintenanceCost);
-
+    rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
     for (let index1 = 0; index1 < 12; index1++) {
       const i = interest * totalBalance;
       const principalPaid = monthlyPayment - i;
@@ -135,7 +142,8 @@ export function buyCalc(
           (index === 0 && values.closing == "no"
             ? homePrice * buyClosingCost
             : 0) +
-          (index + 1 == finalYear ? homePrice * sellClosingCost : 0)
+          (index + 1 == finalYear ? homePrice * sellClosingCost : 0) -
+          rentalIncome / 12
       );
     }
 
