@@ -222,7 +222,7 @@ function HomePurchase() {
                   <Tooltip>
                     <TooltipTrigger
                       type="button"
-                      className="text-[#2ea6e9] text-sm"
+                      className="text-[#2ea6e9] text-sm "
                     >
                       Whats this?
                     </TooltipTrigger>
