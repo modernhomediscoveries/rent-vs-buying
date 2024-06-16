@@ -226,7 +226,13 @@ function HomePurchase() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger
-                      type="button"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
                       className="text-[#2ea6e9] text-sm"
                     >
                       Whats this?
@@ -387,6 +393,13 @@ function HomePurchase() {
                   <Tooltip>
                     <TooltipTrigger
                       type="button"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
                       className="text-[#2ea6e9] text-sm"
                     >
                       What is Final Year?
