@@ -169,6 +169,13 @@ export default function HomeRent() {
                   <Tooltip>
                     <TooltipTrigger
                       type="button"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
                       className="text-[#2ea6e9] text-sm"
                     >
                       Rental Fee Increase?
@@ -245,6 +252,13 @@ export default function HomeRent() {
                   <Tooltip>
                     <TooltipTrigger
                       type="button"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
                       className="text-[#2ea6e9] text-sm text-start"
                     >
                       What is included in this?

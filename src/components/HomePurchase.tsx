@@ -101,8 +101,13 @@ function HomePurchase() {
       ...prev,
       [name]: value,
       [name.replace("Type", "")]: formatNumberInput(
-        prev[name.replace("Type", "")],
-        homePurchaseInitial.validations[name.replace("Type", "")]
+        (prev as Record<string, string>)[name.replace("Type", "")],
+        (
+          homePurchaseInitial.validations as Record<
+            string,
+            (s: string) => number
+          >
+        )[name.replace("Type", "")]
       ),
     }));
   }
@@ -221,8 +226,14 @@ function HomePurchase() {
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger
-                      type="button"
-                      className="text-[#2ea6e9] text-sm "
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
+                      className="text-[#2ea6e9] text-sm"
                     >
                       Whats this?
                     </TooltipTrigger>
@@ -382,6 +393,13 @@ function HomePurchase() {
                   <Tooltip>
                     <TooltipTrigger
                       type="button"
+                      onClick={(event) => {
+                        event.preventDefault();
+                        const target = event.currentTarget;
+
+                        target.blur();
+                        target.focus();
+                      }}
                       className="text-[#2ea6e9] text-sm"
                     >
                       What is Final Year?
