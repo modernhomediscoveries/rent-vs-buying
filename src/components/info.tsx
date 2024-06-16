@@ -295,9 +295,10 @@ export default function Info() {
                     </TooltipTrigger>
                     <TooltipContent className="">
                       <p>
-                        Rental Income Growth is the amount you anticipate your
+                        Rent Income Growth is the amount you anticipate your
                         rental income to increase each year. A good benchmark
-                        could be the average inflation rate.
+                        could be the average inflation rate. In some markets,
+                        rent prices may rise faster than in others.
                       </p>
                     </TooltipContent>
                   </Tooltip>
