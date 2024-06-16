@@ -233,6 +233,9 @@ export default function Info() {
                         This refers to the estimated monthly income you expect
                         to receive from roommates, renting out a second unit, or
                         other rental arrangements after purchasing your home.
+                        Rent Income is only deducted from the cost of living
+                        in a home you purchased. This calculator assumes that
+                        if you rent you will live alone.
                       </p>
                     </TooltipContent>
                   </Tooltip>
