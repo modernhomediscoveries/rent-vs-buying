@@ -106,7 +106,7 @@ function HomePurchase() {
   return (
     <>
       {text && (
-        <div className="fixed top-0 left-0 w-full min-h-screen flex justify-center items-center z-50 bg-black bg-opacity-20 backdrop-blur-sm ">
+        <div className="fixed top-0 left-0 w-full min-h-screen flex justify-center items-center z-50 bg-black bg-opacity-20 backdrop-blur-sm">
           <div className="w-[700px] max-w-full bg-white rounded py-8 px-4">
             <div className="flex justify-end mb-4">
               {" "}
@@ -154,7 +154,7 @@ function HomePurchase() {
           </div>
         </div>
       )}
-      <form className="py-6 px-4 shadow w-full space-y-5 bg-white">
+      <form className="py-6 px-4 shadow print:shadow-none w-full space-y-5 bg-white">
         <h2 className="w-full py-2 bg-gray-800 text-white font-bold text-lg text-center">
           Home Purchase
         </h2>

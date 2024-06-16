@@ -9,7 +9,7 @@ const Table: FC<{
   return (
     <div className="overflow-x-auto">
       {" "}
-      <table className="min-w-full divide-y divide-gray-200 shadow overflow-hidden sm:rounded-lg">
+      <table className="min-w-full divide-y divide-gray-200 shadow print:shadow-none overflow-hidden sm:rounded-lg">
         <thead className="bg-gray-900 text-white">
           <tr>
             <th

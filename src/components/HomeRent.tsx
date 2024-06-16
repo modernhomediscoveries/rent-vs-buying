@@ -106,7 +106,7 @@ export default function HomeRent() {
           </div>
         </div>
       )}
-      <form className="space-y-5 py-6 px-4 shadow bg-white">
+      <form className="space-y-5 py-6 px-4 shadow print:shadow-none bg-white">
         <h2 className="w-full py-2 bg-gray-800 text-white text-center font-bold text-lg">
           Home Rent
         </h2>
