@@ -59,6 +59,8 @@ const LineChart: FC<
   }
 
   const options: ChartOptions<"line"> = {
+    responsive: true,
+    maintainAspectRatio: false,
     interaction: {
       mode: "index",
       intersect: false,
@@ -133,7 +135,7 @@ const LineChart: FC<
 
   return (
     <div>
-      <Line data={data} options={options} />
+      <Line data={data} options={options} height={600} />
     </div>
   );
 };

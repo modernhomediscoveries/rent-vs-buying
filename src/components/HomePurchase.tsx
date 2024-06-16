@@ -25,12 +25,9 @@ export const homePurchaseInitial = {
     finalYear: "30",
     buyClosingCost: "0",
     propertyTax: "1200",
-    propertyTaxType: "$",
     homeInsurance: "1000",
-    homeInsuranceType: "$",
     HOAFee: "800",
     maintenanceCost: "500",
-    maintenanceCostType: "$",
     sellClosingCost: "0",
     closing: "no",
     expenseGrowth: "3",
@@ -100,15 +97,6 @@ function HomePurchase() {
     setPurchaseData((prev) => ({
       ...prev,
       [name]: value,
-      [name.replace("Type", "")]: formatNumberInput(
-        (prev as Record<string, string>)[name.replace("Type", "")],
-        (
-          homePurchaseInitial.validations as Record<
-            string,
-            (s: string) => number
-          >
-        )[name.replace("Type", "")]
-      ),
     }));
   }
 
@@ -433,27 +421,14 @@ function HomePurchase() {
               value={purchaseData.propertyTax}
               onChange={formatterInputHandlingChangeWithValidation(
                 handleChange,
-                fields.propertyTaxType == "%"
-                  ? homePurchaseInitial.validations.propertyTax
-                  : homePurchaseInitial.validations.default
+
+                homePurchaseInitial.validations.default
               )}
               type="text"
               className="h-10 px-2 rounded border w-full"
             />
             <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              <button
-                type="button"
-                className=" text-[#2ea6e9]"
-                onClick={() => {
-                  typeHandleChange(
-                    "propertyTaxType",
-                    fields.propertyTaxType == "%" ? "$" : "%"
-                  );
-                }}
-              >
-                {fields.propertyTaxType}
-              </button>{" "}
-              - year
+              $ - year
             </span>
           </div>
         </div>
@@ -465,30 +440,13 @@ function HomePurchase() {
               value={purchaseData.homeInsurance}
               onChange={formatterInputHandlingChangeWithValidation(
                 handleChange,
-                fields.homeInsuranceType == "%"
-                  ? homePurchaseInitial.validations.homeInsurance
-                  : homePurchaseInitial.validations.default
+                homePurchaseInitial.validations.default
               )}
               type="text"
-              className="h-10 px-6 rounded border w-full"
+              className="h-10 px-2 rounded border w-full"
             />
-            <span className="absolute left-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              $
-            </span>
             <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              <button
-                type="button"
-                className=" text-[#2ea6e9]"
-                onClick={() => {
-                  typeHandleChange(
-                    "homeInsuranceType",
-                    fields.homeInsuranceType == "%" ? "$" : "%"
-                  );
-                }}
-              >
-                {fields.homeInsuranceType}
-              </button>{" "}
-              - year
+              $ - year
             </span>
           </div>
         </div>
@@ -503,13 +461,10 @@ function HomePurchase() {
                 homePurchaseInitial.validations.HOAFee
               )}
               type="text"
-              className="h-10 px-6 rounded border w-full"
+              className="h-10 px-2 rounded border w-full"
             />
-            <span className="absolute left-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              $
-            </span>
             <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              year
+              $ - year
             </span>
           </div>
         </div>
@@ -521,27 +476,13 @@ function HomePurchase() {
               value={purchaseData.maintenanceCost}
               onChange={formatterInputHandlingChangeWithValidation(
                 handleChange,
-                fields.maintenanceCostType == "%"
-                  ? homePurchaseInitial.validations.maintenanceCost
-                  : homePurchaseInitial.validations.default
+                homePurchaseInitial.validations.default
               )}
               type="text"
               className="h-10 px-2 rounded border w-full"
             />
             <span className="absolute right-0 top-0 h-10 px-2 flex justify-center items-center text-gray-500 font-thin">
-              <button
-                type="button"
-                className=" text-[#2ea6e9]"
-                onClick={() => {
-                  typeHandleChange(
-                    "maintenanceCostType",
-                    fields.maintenanceCostType == "%" ? "$" : "%"
-                  );
-                }}
-              >
-                {fields.maintenanceCostType}
-              </button>{" "}
-              - year
+              $ - year
             </span>
           </div>
         </div>
