@@ -104,7 +104,7 @@ export default function Info() {
       )}
       <form className="space-y-5 py-6 px-4 shadow bg-white">
         <h2 className="w-full py-2 bg-gray-800 text-white font-bold text-lg">
-          Your Information
+          Other Information
         </h2>
         <div className="flex flex-col text-start">
           <label>Average Investment Return:</label>
