@@ -104,7 +104,7 @@ export default function Info() {
       )}
       <form className="space-y-5 py-6 px-4 shadow bg-white">
         <h2 className="w-full py-2 bg-gray-800 text-center text-white font-bold text-lg">
-          Your Information
+          Other Information
         </h2>
         <div className="flex flex-col text-start">
           <label>Average Investment Return:</label>
@@ -233,6 +233,9 @@ export default function Info() {
                         This refers to the estimated monthly income you expect
                         to receive from roommates, renting out a second unit, or
                         other rental arrangements after purchasing your home.
+                        Rent Income is only deducted from the cost of living in
+                        a home you purchased. This calculator assumes that if
+                        you rent you will live alone.
                       </p>
                     </TooltipContent>
                   </Tooltip>
@@ -242,7 +245,7 @@ export default function Info() {
           </div>
         </div>
         <div className="flex flex-col text-start">
-          <label>Rental Income Growth:</label>
+          <label>Rent Income Growth:</label>
           <div className="flex flex-col md:flex-row gap-3 md:gap-5 justify-between items-center">
             {" "}
             <div className="relative w-full md:w-2/3">
@@ -295,9 +298,10 @@ export default function Info() {
                     </TooltipTrigger>
                     <TooltipContent className="">
                       <p>
-                        Rental Income Growth is the amount you anticipate your
+                        Rent Income Growth is the amount you anticipate your
                         rental income to increase each year. A good benchmark
-                        could be the average inflation rate.
+                        could be the average inflation rate. In some markets,
+                        rent prices may rise faster than in others.
                       </p>
                     </TooltipContent>
                   </Tooltip>
