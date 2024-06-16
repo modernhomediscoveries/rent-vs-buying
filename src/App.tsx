@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useReactToPrint } from "react-to-print";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import HomePurchase from "./components/HomePurchase";
 import HomeRent from "./components/HomeRent";
@@ -7,10 +8,48 @@ import React from "react";
 import LineChart from "./components/LineChart";
 import { useStore } from "./store";
 import Info from "./components/info";
+import { cn } from "./lib/utils";
 
 function App() {
   const { calcBuy, calcRent, buyResult, rentResult } = useStore();
   const [result, setResult] = useState<string>();
+  const [isPrinting, setIsPrinting] = useState(false);
+  const printRef = useRef<HTMLDivElement>(null);
+  // We store the resolve Promise being used in `onBeforeGetContent` here
+  const promiseResolveRef: {
+    current:
+      | ((
+          // sections
+          value: any
+        ) => void)
+      | null;
+  } = useRef(null);
+
+  // We watch for the state to change here, and for the Promise resolve to be available
+  useEffect(() => {
+    if (isPrinting && promiseResolveRef.current) {
+      // Resolves the Promise, letting `react-to-print` know that the DOM updates are completed
+      setTimeout(() => {
+        if (isPrinting && promiseResolveRef.current)
+          promiseResolveRef.current("");
+      }, 1000);
+    }
+  }, [isPrinting]);
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+    onBeforeGetContent: () => {
+      return new Promise((resolve) => {
+        promiseResolveRef.current = resolve;
+        setIsPrinting(true);
+      });
+    },
+    onAfterPrint: () => {
+      // Reset the Promise resolve so we can print again
+      promiseResolveRef.current = null;
+      setIsPrinting(false);
+    },
+  });
 
   function calc() {
     calcBuy();
@@ -65,13 +104,39 @@ function App() {
   }, []);
 
   return (
-    <main>
-      <div className="flex flex-col md:flex-row justify-between gap-10 bg-[url('/texture-2.png')] bg-center bg-cover">
+    <main
+      ref={printRef}
+      className={cn(
+        isPrinting ? "w-[800px] px-4 min-h-screen text-center" : ""
+      )}
+    >
+      <button
+        onClick={handlePrint}
+        className={cn(
+          "hover:scale-95 transition-all",
+          isPrinting ? "hidden" : ""
+        )}
+      >
+        Print
+      </button>
+
+      <div
+        className={cn(
+          "flex flex-col md:flex-row justify-between gap-10 bg-center bg-cover",
+          isPrinting ? "" : "bg-[url('/texture-2.png')]"
+        )}
+      >
         <HomePurchase />
-        <div className=" w-full flex flex-col">
+        <div className=" w-full flex flex-col print:break-before-page">
           <HomeRent />
+          <hr className="print:break-before-page print:mb-8" />
           <Info />
-          <div className="h-full flex justify-center items-end">
+          <div
+            className={cn(
+              "h-full flex justify-center items-end",
+              isPrinting ? "hidden" : ""
+            )}
+          >
             <button
               onClick={() => {
                 calc();
@@ -84,7 +149,9 @@ function App() {
         </div>
       </div>
 
-      <h3 className="my-10 text-xl font-bold">{result ?? "..."}</h3>
+      <h3 className="my-10 text-xl font-bold print:break-before-page">
+        {result ?? "..."}
+      </h3>
       <LineChart
         lines={[
           {
@@ -97,7 +164,7 @@ function App() {
           },
         ]}
       />
-      <div className="mt-10">
+      <div className="mt-10 print:break-before-page">
         `
         <Table rentInfo={rentResult ?? []} buyInfo={buyResult ?? []} />
       </div>

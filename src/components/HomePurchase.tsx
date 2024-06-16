@@ -155,10 +155,10 @@ function HomePurchase() {
         </div>
       )}
       <form className="py-6 px-4 shadow w-full space-y-5 bg-white">
-        <h2 className="w-full py-2 bg-gray-800 text-white font-bold text-lg">
+        <h2 className="w-full py-2 bg-gray-800 text-white font-bold text-lg text-center">
           Home Purchase
         </h2>
-        <div className="flex flex-col text-start w-full">
+        <div className=" text-start w-full">
           <label>Home Purchase Price:</label>
           <div className="relative md:md:pr-5">
             <input

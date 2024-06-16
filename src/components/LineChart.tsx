@@ -18,6 +18,8 @@ import {
   TooltipModel,
 } from "chart.js/auto";
 import { kFormat } from "../Utils/number-formatter";
+import { cn } from "../lib/utils";
+import { useStore } from "../store";
 
 ChartJS.register(
   CategoryScale,
@@ -134,8 +136,8 @@ const LineChart: FC<
   };
 
   return (
-    <div>
-      <Line data={data} options={options} height={600} />
+    <div className="w-full">
+      <Line data={data} options={options} height={600} width={"full"} />
     </div>
   );
 };
