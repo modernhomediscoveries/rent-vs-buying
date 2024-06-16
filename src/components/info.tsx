@@ -242,7 +242,7 @@ export default function Info() {
           </div>
         </div>
         <div className="flex flex-col text-start">
-          <label>Rental Income Growth:</label>
+          <label>Rent Income Growth:</label>
           <div className="flex flex-col md:flex-row gap-3 md:gap-5 justify-between items-center">
             {" "}
             <div className="relative w-full md:w-2/3">
