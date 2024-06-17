@@ -222,7 +222,10 @@ export default function HomeRent() {
               <input
                 name="upfrontCost"
                 value={homeRent.upfrontCost}
-                onChange={formatterInputHandlingChange(handleChange)}
+                onChange={formatterInputHandlingChangeWithValidation(
+                  handleChange,
+                  rentInit.validations.upfrontCost
+                )}
                 type="text"
                 className="h-10 px-6 rounded border w-full"
               />
