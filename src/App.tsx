@@ -107,7 +107,7 @@ function App() {
     <main
       ref={printRef}
       className={cn(
-        isPrinting ? "w-[800px] px-4 min-h-screen text-center" : ""
+        isPrinting ? "w-[800px] px-4 min-h-screen text-center" : "pt-4"
       )}
     >
       <div
