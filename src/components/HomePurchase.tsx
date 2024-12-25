@@ -156,7 +156,7 @@ function HomePurchase() {
       )}
       <form className="py-6 px-4 shadow print:shadow-none w-full space-y-5 bg-white">
         <h2 className="w-full py-2 bg-gray-800 text-white font-bold text-lg text-center">
-          Home Purchase
+          Cost to Buy
         </h2>
         <div className=" text-start w-full">
           <label>Home Purchase Price:</label>
