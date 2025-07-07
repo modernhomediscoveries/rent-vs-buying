@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply overflow-x-hidden h-full scroll-smooth;
+    scroll-padding-top: 250px;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+  }
+  @media print {
+    @page {
+      size: portrait;
+    }
+  }
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .shadow-box {
+    box-shadow: 0px 0px 20px 0px rgba(30, 30, 30, 0.2);
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
+@layer utilities {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

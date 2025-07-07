@@ -1,20 +1,39 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": [],
-    "allowJs": false,
-    "skipLibCheck": false,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/components/charts/Doughnut.jsx",
+    "src/app/components/charts/DoughnutFilled.jsx",
+    "dist/types/**/*.ts",
+    "src/app/store.js",
+    "src/app/components/Expenses.jsx",
+    "src/app/components/Sidebar.jsx"
+, "src/app/(home)/page.jsx", "src/app/(home)/home/PropertyInformation.jsx", "src/app/logic.js", "src/app/(home)/results/MonthlyCash.jsx", "src/app/components/ProgressBar.jsx", "src/app/components/common/HelpScreen.jsx", "src/app/components/charts/LineChart.jsx", "src/app/(home)/results/InvestmentDeploy.jsx", "src/app/(home)/results/HouseInf.jsx", "src/app/(home)/results/ResultsTable.jsx", "src/app/components/GoogleAutoComplete.jsx"  ],
+  "exclude": ["node_modules"]
 }
