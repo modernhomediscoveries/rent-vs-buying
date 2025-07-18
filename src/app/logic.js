@@ -29,9 +29,6 @@ export function rentCalc(values) {
 }
 
 export function buyCalc(values) {
-  let rentalIncome = numberInterpret(values?.rentalIncome ?? 0);
-  const rentalIncomeGrowth =
-    numberInterpret(values?.rentalIncomeGrowth ?? 0) / 100;
   const loanTerm = numberInterpret(values?.loanTerm ?? 0);
   let homePurchasePrice = numberInterpret(values?.homePurchasePrice ?? 0);
   const interestRate = numberInterpret(values?.interestRate ?? 0) / 12 / 100;
@@ -47,9 +44,12 @@ export function buyCalc(values) {
   const finalYear = numberInterpret(values?.finalYear ?? 0);
   const averageInvestmentReturn =
     numberInterpret(values?.averageInvestmentReturn ?? 0) / 100;
-  const annualRentIncome =
-    numberInterpret(values?.annualRentIncome ?? 0) / 100;
-  const rentIncomeGrowth = numberInterpret(values?.rentIncomeGrowth ?? 0) / 100;
+  const homeValueAppreciation =
+    numberInterpret(values?.homeValueAppreciation ?? 0) / 100;
+  const expenseGrowth = numberInterpret(values?.expenseGrowth ?? 0) / 100;
+  let annualRentIncome = numberInterpret(values?.annualRentIncome ?? 0);
+  const rentalIncomeGrowth =
+    numberInterpret(values?.rentalIncomeGrowth ?? 0) / 100;
 
   let totalBalance =
     homePurchasePrice *
@@ -72,10 +72,10 @@ export function buyCalc(values) {
     index++
   ) {
     const yearI = [];
-    propertyTax *= 1 + rentIncomeGrowth;
-    maintenanceCost *= 1 + rentIncomeGrowth;
-    homeInsurance *= 1 + rentIncomeGrowth;
-    rentalIncome = rentalIncome * (1 + rentalIncomeGrowth);
+    propertyTax *= 1 + expenseGrowth;
+    maintenanceCost *= 1 + expenseGrowth;
+    homeInsurance *= 1 + expenseGrowth;
+    annualRentIncome = annualRentIncome * (1 + rentalIncomeGrowth);
 
     for (let index1 = 0; index1 < 12; index1++) {
       const i = interestRate * totalBalance;
@@ -85,7 +85,7 @@ export function buyCalc(values) {
 
       yearI.push(
         (i > 0 ? i : 0) +
-          homePurchasePrice * (-annualRentIncome / 12) +
+          homePurchasePrice * (-homeValueAppreciation / 12) +
           homeInsurance / 12 +
           maintenanceCost / 12 +
           propertyTax / 12 +
@@ -94,13 +94,13 @@ export function buyCalc(values) {
             ? homePurchasePrice * purchaseClosingCosts
             : 0) +
           (index + 1 === finalYear ? homePurchasePrice * saleClosingCosts : 0) -
-          rentalIncome / 12
+          annualRentIncome / 12
       );
     }
 
     array.push({
       balance: totalBalance,
-      interestRate:
+      interest:
         yearI.reduce((acc, curr) => acc + curr, 0) / yearI.length +
         (investment * averageInvestmentReturn) / 12,
       totalPaid:
@@ -109,7 +109,7 @@ export function buyCalc(values) {
     });
 
     investment *= 1 + averageInvestmentReturn;
-    homePurchasePrice *= 1 + annualRentIncome;
+    homePurchasePrice *= 1 + homeValueAppreciation;
   }
 
   return {
