@@ -1,1 +1,1 @@
-### This is a Rent vs Buying calculator
+## This is a Rent vs Buying calculator
