@@ -80,8 +80,8 @@ const Page = () => {
     if (buyResult.deploy.length != 0)
       setChartResult(
         (sumBuy[buyResult.finalYear] < sumRent[buyResult.finalYear]
-          ? `Renting Is Cheaper`
-          : "Buying Is Cheaper") + ` Over The Next ${buyResult.finalYear} Years`
+          ? `Buying Is Cheaper`
+          : "Renting Is Cheaper") + ` Over The Next ${buyResult.finalYear} Years`
       );
   }, [buyResult.deploy, buyResult.finalYear, rentResult.deploy]);
 
