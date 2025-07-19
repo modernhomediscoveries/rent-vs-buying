@@ -22,9 +22,10 @@ ChartJS.register(
 );
 
 const LineChart = ({ lines, labels, startXAxis }) => {
-  const frequency = [];
-  for (let i = 0; i < (lines?.[0]?.deploy?.length ?? 0); i++) {
-    frequency.push(i + (startXAxis ?? 1));
+ const frequency = [];
+  const dataLength = lines?.[0]?.deploy?.length ?? 31; // Default to 31 points (0-30)
+  for (let i = 0; i < dataLength; i++) {
+    frequency.push(i); // Now starts at 0
   }
 
   const options = {

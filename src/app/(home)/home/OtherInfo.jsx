@@ -15,7 +15,7 @@ const CostToBuy = ({ setResults }) => {
     initialValues: {
       averageInvestmentReturn: fields.averageInvestmentReturn ?? "0",
       annualRentIncome: fields.annualRentIncome ?? "0",
-      rentIncomeGrowth: fields.rentIncomeGrowth ?? "0",
+      rentalIncomeGrowth: fields.rentalIncomeGrowth ?? "0",
     },
     onSubmit,
   });
@@ -80,8 +80,8 @@ const CostToBuy = ({ setResults }) => {
             <div className="max-w-sm col-span-2">
               <label className="mb-0.5 block">Rent Income Growth</label>
               <Input
-                name={"rentIncomeGrowth"}
-                value={values.rentIncomeGrowth}
+                name={"rentalIncomeGrowth"}
+                value={values.rentalIncomeGrowth}
                 prefix={"%"}
                 suffix={"% - Compounded"}
                 maxDecimals={3}

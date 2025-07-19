@@ -35,7 +35,7 @@ const reportSchema = new Schema(
     upfrontCost: { type: String, trim: true },
     averageInvestmentReturn: { type: String, trim: true },
     annualRentIncome: { type: String, trim: true },
-    rentIncomeGrowth: { type: String, trim: true },
+    rentalIncomeGrowth: { type: String, trim: true },
   },
   {
     timestamps: true,
