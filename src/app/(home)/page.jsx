@@ -70,7 +70,7 @@ const Page = () => {
 
   useEffect(() => {
     const sumBuy = buyResult.deploy.reduce(
-      (acc, item) => acc.concat(item.interest + acc[acc.length - 1]),
+      (acc, item) => acc.concat(item.interestRate + acc[acc.length - 1]),
       [0]
     );
     const sumRent = rentResult.deploy.reduce(
