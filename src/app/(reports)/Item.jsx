@@ -12,7 +12,7 @@ const Item = ({ report, setItemId, modal, setModal }) => {
   return (
     <div className="relative">
       <div
-        className="absolute bg-white top-3 right-3 z-10 cursor-pointer rounded-md px-1"
+        className="absolute bg-white hover:bg-[#f3f4f6] top-3 right-3 z-10 cursor-pointer rounded-md px-1"
         onClick={() => {
           setDeleteButton(!deleteButton);
         }}
@@ -20,7 +20,7 @@ const Item = ({ report, setItemId, modal, setModal }) => {
         <EllipsisIcon />
       </div>
       {deleteButton && (
-        <ul className="absolute bg-white top-10 right-3 z-10 cursor-pointer rounded-md transition-all">
+        <ul className="absolute bg-white hover:bg-[#f3f4f6] top-10 right-3 z-10 cursor-pointer rounded-md transition-all">
           <li
             className="border-b pl-2 pr-5 py-1"
             onClick={() => {
