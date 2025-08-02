@@ -48,8 +48,10 @@ const Item = ({ report, setItemId, modal, setModal }) => {
           />
           <div className="p-3 space-y-2">
             <div>
-              <p className="font-semibold line-clamp-2">{report?.placeName}</p>
-              <p>{report?.vicinity}</p>
+              <p className="font-semibold line-clamp-2">
+                {report?.placeName || ""}
+              </p>
+              <p>{report?.vicinity || ""}</p>
             </div>
             <p>
               <small>Analyzed over {moment(report.createdAt).fromNow()}</small>
