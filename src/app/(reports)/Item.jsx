@@ -34,11 +34,11 @@ const Item = ({ report, setItemId, modal, setModal }) => {
         </ul>
       )}
       <Link href={`/?reportId=${report._id}`}>
-        <div className="bg-white shadow-box rounded-xl min-h-[375px]">
+        <div className="bg-white shadow-box rounded-xl">
           <Image
             src={report.selectedFile?.url || "/house.png"}
             alt=""
-            className={`w-full object-cover h-72 md:h-52 ${
+            className={`w-full h-full aspect-video ${
               report.selectedFile?.url
                 ? "rounded-t-xl"
                 : "bg-gray-200 opacity-40 py-5 px-10"
