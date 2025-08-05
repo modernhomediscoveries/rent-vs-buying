@@ -1,13 +1,12 @@
+import { formatNumberInput } from "@/app/utils/numberFormatter";
 import { EllipsisIcon } from "lucide-react";
 import moment from "moment";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { formatNumberInput } from "@/app/utils/numberFormatter";
 
 const Item = ({ report, setItemId, modal, setModal }) => {
   const [deleteButton, setDeleteButton] = useState(false);
-
 
   return (
     <div className="relative">
@@ -34,14 +33,14 @@ const Item = ({ report, setItemId, modal, setModal }) => {
         </ul>
       )}
       <Link href={`/?reportId=${report._id}`}>
-        <div className="bg-white shadow-box rounded-xl">
+        <div className="bg-white shadow-box rounded-xl min-h-[325px]">
           <Image
             src={report.selectedFile?.url || "/house.png"}
             alt=""
             className={`w-full h-full aspect-video ${
               report.selectedFile?.url
                 ? "rounded-t-xl"
-                : "bg-gray-200 opacity-40 py-5 px-10"
+                : "opacity-40"
             }`}
             width={500}
             height={500}
