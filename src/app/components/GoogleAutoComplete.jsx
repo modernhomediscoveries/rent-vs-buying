@@ -48,13 +48,9 @@ const GoogleAutocomplete = () => {
 
       const location = place.geometry.location;
       const formatted_address = place.formatted_address;
-      const placeName = place.name;
-      const vicinity = place.vicinity;
 
       fieldsChange({
         direction: formatted_address || "",
-        placeName: placeName || "",
-        vicinity: vicinity || "",
       });
       setMapCenter({
         lat: location.lat(),

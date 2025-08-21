@@ -8,6 +8,9 @@ import { useState } from "react";
 const Item = ({ report, setItemId, modal, setModal }) => {
   const [deleteButton, setDeleteButton] = useState(false);
 
+  const addressSplit = report.direction.split(",");
+  const trimmedParts = addressSplit.map((part) => part.trim());
+
   return (
     <div className="relative">
       <div
@@ -38,9 +41,7 @@ const Item = ({ report, setItemId, modal, setModal }) => {
             src={report.selectedFile?.url || "/house.png"}
             alt=""
             className={`w-full h-full aspect-video ${
-              report.selectedFile?.url
-                ? "rounded-t-xl"
-                : "opacity-40"
+              report.selectedFile?.url ? "rounded-t-xl" : "opacity-40"
             }`}
             width={500}
             height={500}
@@ -48,9 +49,9 @@ const Item = ({ report, setItemId, modal, setModal }) => {
           <div className="p-3 space-y-2">
             <div>
               <p className="font-semibold line-clamp-2">
-                {report?.placeName || ""}
+                {trimmedParts.slice(0, -1).join(", ") || ""}
               </p>
-              <p>{report?.vicinity || ""}</p>
+              <p>{trimmedParts[trimmedParts.length - 1] || ""}</p>
             </div>
             <p>
               <small>Analyzed over {moment(report.createdAt).fromNow()}</small>
