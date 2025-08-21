@@ -1,1 +1,1 @@
-## This is a Rent vs Buying App
+### This is a Rent vs Buying App
