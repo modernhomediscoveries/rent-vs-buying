@@ -8,9 +8,6 @@ import { useState } from "react";
 const Item = ({ report, setItemId, modal, setModal }) => {
   const [deleteButton, setDeleteButton] = useState(false);
 
-  const addressSplit = report.direction.split(",");
-  const trimmedParts = addressSplit.map((part) => part.trim());
-
   return (
     <div className="relative">
       <div
@@ -49,9 +46,9 @@ const Item = ({ report, setItemId, modal, setModal }) => {
           <div className="p-3 space-y-2">
             <div>
               <p className="font-semibold line-clamp-2">
-                {trimmedParts.slice(0, -1).join(", ") || ""}
+                {report.direction || ""}
               </p>
-              <p>{trimmedParts[trimmedParts.length - 1] || ""}</p>
+              <p>{report.city || ""}</p>
             </div>
             <p>
               <small>Analyzed over {moment(report.createdAt).fromNow()}</small>

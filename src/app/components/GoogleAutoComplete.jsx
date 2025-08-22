@@ -47,11 +47,27 @@ const GoogleAutocomplete = () => {
       }
 
       const location = place.geometry.location;
-      const formatted_address = place.formatted_address;
+
+      let street = "";
+      let city = "";
+
+      place.address_components.forEach((component) => {
+        if (component.types.includes("street_number")) {
+          street = component.long_name + " " + street;
+        }
+        if (component.types.includes("route")) {
+          street += component.long_name;
+        }
+        if (component.types.includes("locality")) {
+          city = component.long_name;
+        }
+      });
 
       fieldsChange({
-        direction: formatted_address || "",
+        direction: street || "",
+        city: city || "",
       });
+
       setMapCenter({
         lat: location.lat(),
         lng: location.lng(),

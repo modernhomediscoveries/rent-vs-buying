@@ -8,6 +8,7 @@ const reportSchema = new Schema(
       publicId: { type: String, trim: true },
     },
     direction: { type: String, trim: true },
+    city: { type: String, trim: true },
     bedrooms: { type: String, trim: true },
     bathrooms: { type: String, trim: true },
     sqFt: { type: String, trim: true },
